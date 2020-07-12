@@ -1,0 +1,359 @@
+ <!DOCTYPE html> 
+ <html lang="ko"> 
+ <head> 
+ 	<meta charset="utf-8"> 
+ 	<title>자기소개 페이지 </title> 
+ 	
+ </head> 
+ <style>
+ 	html{color:black; 
+ 	background:white; 
+ 	padding:20px 0; 
+ 	} 
+ #cover {width:960px; 
+ 			margin:0 auto; 
+ 			float: left; 
+ 
+ 
+ } 
+ #cover ul li{ float :left; height:100%;} 
+ #menu{width: 100px; height: 300px; background-color:#4682b4; } 
+ #menu ul{margin:0;padding:0;} 
+ #menu ul li{ 
+ 	background-color:rgb(71,163,232); 
+ 	width: 90px; 
+ 
+ 
+  	margin-left: 5%; 
+  	margin-bottom: 5%; 
+ 
+ 
+ } 
+ #menu ul li span{ 
+ 	 
+ 	color:#fff; background-color:rgb(71,163,232); 
+ 	display: block; 
+ 
+ 
+ 	margin: 0 auto; 
+ 	padding:1px; 
+ 	font-size: 10px; 
+ 	font-weight:bold; 
+ 	text-align: center; 
+ } 
+
+ #menu ul li a.selectedmenu{ 
+  background-color:rgb(47,115,255); 
+ } 
+ #mainpage{ 
+ 	padding-left:20px; 
+ 	width: 600px;  
+ 	height:300px; 
+ 	font-size: 12px; 
+ 	 
+ 	height: 287; 
+ 	background-color: aliceblue; 
+ } 
+ #mainpage ul{ 
+ 	width: 80%; 
+ 	float:left; background-color: aliceblue; 
+ } 
+ #mainpage ul li{ 
+	font-size: 12px; 
+ 	padding-top: 20px; 
+ 	padding-left: 30px; 
+ } 
+ h2 {text-align :center; }
+ #clock {
+ 	color:black;
+ 	align-content:right;
+ 	
+ 	border-radius :50px;
+ 	width:100px;
+ 	text-align:center;
+ }
+ span {font-size:10px;}
+</style>
+<script>
+	function pr(msg, arr){
+		document.write(msg + arr.toString()+ "<br>");
+	}
+function createDIV() {
+	var obj = document.getElementById("parent");
+	var newDIV = document.createElement("div");
+	newDIV.innerHTML = "좋아하는것 : 코딩, 독서, 운동, 음주가무 <br> 싫어하는것: 숙취, 수면부족 ";
+	newDIV.setAttribute("id", "myDiv");
+	newDIV.style.backgroundColor = "white";
+	newDIV.onclick = function() {
+		var p = this.parentElement; 
+		p.removeChild(this); 
+	};
+	obj.appendChild(newDIV);
+}
+function createDIV2() {
+	var obj = document.getElementById("parent");
+	var newDIV = document.createElement("div");
+	newDIV.innerHTML = " 1998: 출생<br> 2000: 수원으로 이사옴<br> 2005:초등학교 입학<br> 2011:중학교 입학<br> 2012:미국으로 이사<br> 2013:한국 복귀<br> 2014:고등학교 입학<br> 2017:대학교 입학<br> 2018:입대 <br>2019: 전역<br> 현재: 2학년으로 재학중  <br>";
+	newDIV.setAttribute("id", "myDiv");
+	newDIV.style.backgroundColor = "white";
+	newDIV.onclick = function() {
+		var p = this.parentElement; 
+		p.removeChild(this); 
+	};
+	obj.appendChild(newDIV);
+}
+function startClock() {
+	var clock2 = document.getElementById("clock2");
+	timeout(clock2);
+}
+
+function timeout(obj) {
+	var current = new Date();
+	obj.innerHTML = current.toLocaleTimeString()
+	setTimeout("timeout(clock2)", 1000); 
+}
+	/*7-3*/
+	var sub=document.getElementById("sub");
+	var total="듣는 전공 과목은:    ";
+	var i=0;
+	var been = new Array("c++", "확통", "linux", "html5", "자료구조");
+	for( i=0; i<been.length; i++)
+		total += been[i]+ " ,";
+
+
+	document.write(total+ "<br>");
+/**/
+/*7-4*/
+var b= new Array("영어", "국제사회 이해", "생명과 과학");  
+var c;
+
+c=been.concat(b);
+pr("듣는 과목은 모두    ", c);
+b=c.reverse();
+pr("거꾸로하면     ",b);
+/*7-5*/
+var now1 = new Date();
+var timenow =document.getElementById("timenow");
+/*7-5*/
+/**/
+function pop(){
+	alert("로딩 시간은 "+ now1.toUTCString());
+}
+/**/
+/*7-6*/
+ 	
+ 		var current = new Date(); 
+
+if(current.getHours()  >13)
+	document.body.style.backgroundColor= "lightskyblue";
+else
+	document.body.style.backgroundColor= "orange";
+
+
+
+
+
+
+/*10-6*/
+function startScroll(interval) {
+	setInterval("autoScroll()", interval);
+}
+
+function autoScroll() {
+	window.scrollBy(0,-5); 
+}
+
+/*시계 애니매이션 */
+
+/**/
+
+
+
+
+</script>
+
+ <body id="parent" onload ="startClock()" , onload="startScroll(500)""> 
+
+
+ 	<h2> 나에 관하여</h2>
+ 	호불호나 연대기를 클릭한다면 설명창이 나타난다. 지우고 싶을때는 설명창을 클릭 
+ 	<div id="clock2">
+
+ </div>
+ 	<hr>
+ 	<div id="cover"> 
+ 		<ul> 
+ 			<li> 
+ 		<div id="menu"> 
+ 			<ul id="ul"> 
+ 				<li> 
+ 					<span onclick="init()">클릭하면 시계구현</span>
+ 				</li> 
+ 				<li> 
+ 					<a href="javascript:createDIV()" >호불호</a> 
+ 				</li> 
+ 				<li> 
+ 					<a href="javascript:createDIV2()"> 연대기 </a>
+ 				</li> 
+ 				<li>
+ 					<span onclick="pop()">로딩시간확인할려면 클릭 하세요</span>
+ 				</li>
+ 				<li>
+ 					<a href="2page.html"> 2페이지</a>
+ 				</li>
+ 			</ul> 
+ 
+ 
+ 		</div> 
+ 	</li> 
+ 	<li> 
+ 		<div id="mainpage"> 
+ 			<ul> 
+ 				<li> 
+ 			
+ 		</li> 
+ 		<li > 
+ 		이름: 남찬희 <br/><br/> 
+ 		나이: 23세 <br/><br/> 
+ 		성별: 남<br/><br/> 
+ 		유신고등학교 졸업<br/><br/> 
+ 		<span id="span">가천대학교 컴퓨터 공학과 재학</span> <br/><br/> 
+ 		<span id="p"> 마우스를 올려보세요</span><br>
+ 		<button onclick="startScroll(500)">자동 스크롤 버튼(위로)</button>
+ 		
+ 		</li> 
+ 		
+ 	</ul> 
+ 		</div> 
+ 	</li> 
+ </ul> 
+ 
+ </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<canvas id="canvas" width="800" height="300" style="background-color: lightblue" ></canvas>
+
+  <script>
+  	/*10-4*/
+var span = document.getElementById("span");
+var timer = setInterval("doRotate()", 1000); 
+
+span.onclick = function (e) { 
+	clearInterval(timer); 
+}
+
+function doRotate() {
+	var str = span.innerHTML;
+	var twoChar = str.substr(0, 2);
+	var remains = str.substr(2, str.length-2);
+	str = remains + twoChar;
+	span.innerHTML = str;
+}
+
+
+/*애니매시션 시계*/
+function init(){ 
+   clock(); 
+   setInterval(clock,1000);
+ } 
+function clock(){ 
+   var now = new Date(); 
+   var ctx = document.getElementById('canvas').getContext('2d'); 
+   ctx.save(); 
+   ctx.clearRect(0,0,150,150); 
+   ctx.translate(75,75); 
+   ctx.scale(0.4,0.4); 
+   ctx.rotate(-Math.PI/2); 
+   ctx.strokeStyle = "black"; 
+   ctx.fillStyle = "white"; 
+   ctx.lineWidth = 8; 
+   ctx.lineCap = "round";  
+   
+   ctx.save(); 
+   for (var i=0;i<12;i++){ 
+      ctx.beginPath(); 
+      ctx.rotate(Math.PI/6); 
+      ctx.moveTo(100,0); 
+      ctx.lineTo(120,0); 
+      ctx.stroke(); 
+   } 
+   ctx.restore();
+
+   ctx.save(); 
+   ctx.lineWidth = 5; 
+   for (i=0;i<60;i++){ 
+      if (i%5!=0) { 
+         ctx.beginPath(); 
+         ctx.moveTo(117,0); 
+         ctx.lineTo(120,0); 
+         ctx.stroke(); 
+      } 
+         ctx.rotate(Math.PI/30); 
+   } 
+   ctx.restore(); 
+
+   var sec = now.getSeconds(); 
+   var min = now.getMinutes(); 
+   var hr = now.getHours(); 
+   hr = hr>=12 ? hr-12 : hr; 
+
+   ctx.fillStyle = "black";
+
+   ctx.save(); 
+   ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec );
+   ctx.lineWidth = 14; 
+   ctx.beginPath(); 
+   ctx.moveTo(-20,0); 
+   ctx.lineTo(80,0); 
+   ctx.stroke(); 
+   ctx.restore(); 
+
+   ctx.save(); 
+   ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec );
+   ctx.lineWidth = 10; 
+   ctx.beginPath(); 
+   ctx.moveTo(-28,0); 
+   ctx.lineTo(112,0); 
+   ctx.stroke(); 
+   
+   ctx.restore();
+
+   ctx.save(); 
+   ctx.rotate(sec * Math.PI/30); 
+   ctx.strokeStyle = "#D40000"; 
+   ctx.fillStyle = "#D40000"; 
+   ctx.lineWidth = 6; 
+   ctx.beginPath(); 
+   ctx.moveTo(-30,0); 
+   ctx.lineTo(83,0); 
+   ctx.stroke(); 
+   ctx.beginPath(); 
+   ctx.arc(0,0,10,0,Math.PI*2,true); 
+   ctx.fill(); 
+   ctx.beginPath(); 
+   ctx.arc(95,0,10,0,Math.PI*2,true); 
+   ctx.stroke(); 
+   ctx.fillStyle = "rgba(0,0,0,0)"; 
+   ctx.arc(0,0,3,0,Math.PI*2,true); 
+   ctx.fill(); 
+   ctx.restore(); 
+
+   ctx.beginPath();
+   ctx.lineWidth = 14; 
+   ctx.strokeStyle = '#325FA2'; 
+   ctx.arc(0,0,142,0,Math.PI*2,true); 
+   ctx.stroke(); 
+
+   ctx.restore(); 
+}
+
+
+
+ </script>
+
+ </body> 
+ </html> 

@@ -1,0 +1,220 @@
+<!DOCTYPE html> 
+ <html lang="ko"> 
+ <head> 
+ 	<meta charset="utf-8"> 
+ 	<title>자기소개 페이지2 </title> 
+ <script>
+ 	/*9-4*/
+ 	var span;
+function init() {
+	span = document.getElementById("span");	
+	span.onmouseover = function () { 
+		this.style.color = "orchid";
+	}; 
+	span.addEventListener("mouseout", 
+		function () { this.style.color="black"; } 
+	);
+}
+ </script>
+ </head> 
+ <style>
+ 	html{color:black; 
+ 	
+ 	padding:20px 0; 
+ 	} 
+ #cover {width:960px; 
+ 			margin:0 auto; 
+ 			float: left; 
+ 
+ 
+ } 
+ #cover ul li{ float :left; height:100%;} 
+ #menu{width: 100px; height: 300px; background-color:#4682b4; } 
+ #menu ul{margin:0;padding:0;} 
+ #menu ul li{ 
+ 	background-color:rgb(71,163,232); 
+ 	width: 90px; 
+ 
+ 
+  	margin-left: 5%; 
+  	margin-bottom: 5%; 
+ 
+ 
+ } 
+ #menu ul li span{ 
+ 	 
+ 	color:#fff; background-color:rgb(71,163,232); 
+ 	display: block; 
+ 
+ 
+ 	margin: 0 auto; 
+ 	padding:1px; 
+ 	font-size: 10px; 
+ 	font-weight:bold; 
+ 	text-align: center; 
+ } 
+
+ #menu ul li a.selectedmenu{ 
+  background-color:rgb(47,115,255); 
+ } 
+ #mainpage{ 
+ 	padding-left:20px; 
+ 	width: 600px;  
+ 	height:300px; 
+ 	font-size: 12px; 
+ 	 
+ 	height: 287; 
+ 	background-color: aliceblue; 
+ } 
+ #mainpage ul{ 
+ 	width: 80%; 
+ 	float:left; background-color: aliceblue; 
+ } 
+ #mainpage ul li{ 
+	font-size: 12px; 
+ 	padding-top: 20px; 
+ 	padding-left: 30px; 
+ } 
+ h2 {text-align :center; }
+ #clock {
+ 	color:black;
+ 	align-content:right;
+ 	background-color:aliceblue;
+ 	border-radius :50px;
+ 	width:100px;
+ 	text-align:center;
+ }
+ span {font-size:10px;}
+</style>
+<script>
+	
+function createDIV() {
+	var obj = document.getElementById("parent");
+	var newDIV = document.createElement("div");
+	newDIV.innerHTML = "여름방학에는 토익 만점 토플 100점이상 <br> java를 공부하는게 목표이다.  ";
+	newDIV.setAttribute("id", "myDiv");
+	newDIV.style.backgroundColor = "white";
+	newDIV.onclick = function() {
+		var p = this.parentElement; // \
+		p.removeChild(this); 
+	};
+	obj.appendChild(newDIV);
+}
+function createDIV2() {
+	var obj = document.getElementById("parent");
+	var newDIV = document.createElement("div");
+	newDIV.innerHTML = " 대학교를 졸업하면 대학원으로의 진학을 고민하고 있다. <br>직장은 데이터 사이언스 분야에서 갖기를 희망하고 그를 위해 노력할 것이다.";
+	newDIV.setAttribute("id", "myDiv");
+	newDIV.style.backgroundColor = "white";
+	newDIV.onclick = function() {
+		var p = this.parentElement; 
+		p.removeChild(this); 
+	};
+	obj.appendChild(newDIV);
+
+
+
+/**/
+/**/
+
+</script>
+
+ <body id="parent"  onload="init()"> 
+ 	<script>
+ 		/*9-5*/
+ 		function f(e) { // 
+	alert(e.type); 
+}
+/*9-6*/
+function pop(e){
+	alert("이벤트 타입:" + e.type +"//"+ "target: " + e.target +"//" + "현제 타겟:"+e.currentTarget);
+}
+/*10-3*/
+var timerID=null;
+function startTime(time) {
+	
+	timerID = setTimeout("load('http://www.google.com')", time);
+}
+function cancelTime() {
+	if(timerID !=null) 
+		clearTimeout(timerID); 
+}
+function load(url) {
+	window.location = url; 
+}
+/*10-4*/
+var span=document.getElementById("rotate");
+var time =setInterval("doRotate()", 200);
+span.onclick = function (e){
+	clearInterval(time);
+}
+function doRotate() {
+	var str = span.innerHTML;
+	var twoChar = str.substr(0, 2);
+	var remains = str.substr(2, str.length-2);
+	str = remains + twoChar;
+	span.innerHTML = str; 
+}
+/**/
+
+ 	</script>
+ 	<h2> 나에 관하여</h2>
+ 	<p id="p">하이퍼 링크를 클릭 시 상세 문항이 나옴  </p>
+ 	<button onclick="f(event)" onclick="pop(event)">클릭시 해당 이벤트 타입 출력</button><br>
+  <button  onclick="pop(event)">클릭시 해당 이벤트 객체의 프로퍼티 출력</button><br>
+ 
+
+ </div>
+ 	<hr>
+ 	<div id="cover"> 
+ 		<ul> 
+ 			<li> 
+ 		<div id="menu"> 
+ 			<ul>
+ 				<li> 
+ 					<a href="javascript:createDIV2()">앞으로의 목표</a> 
+ 				</li> 
+ 				<li> 
+ 					<a href="javascript:createDIV()" >여름방학 계획 </a> 
+ 				</li> 
+ 				
+ 		
+ 				<li>
+ 					<a href="자기소개.html"> 1페이지</a>
+ 				</li>
+
+ 			</ul>
+ 
+ 
+ 		</div> 
+ 	</li> 
+ 	<li> 
+ 		<div id="mainpage"> 
+ 			<ul> 
+ 				<li> 
+ 			
+ 		</li> 
+ 		<li > 
+ 		이름: 남찬희 <br/><br/> 
+ 		나이: 23세 <br/><br/> 
+ 		성별: 남<br/><br/> 
+ 		유신 고등학교 졸업<br/><br/> 
+ 		가천대학교 컴퓨터 공학과 재학 <br/><br/> 
+ 		<p onmouseover="startTime(3000)" onmouseout="cancelTime()"> (마우스를 3초동안 올리면 구글에 연결된다.)</p>
+ 		<span id="span"> 추후 교환확생 예정, 코로나 때문에 힘들수도 있다.</span>
+ 		</li> 
+ 		
+ 		
+ 	</ul> 
+ 		</div> 
+ 	</li> 
+ </ul> 
+ <br>
+ <br>
+ 
+
+ </div> 
+ <br>
+
+ </body> 
+ </html> 
